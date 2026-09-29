@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mobile-fps-online",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-28",
+  "assets": {
+    "directory": "./client",
+    "binding": "ASSETS",
+    "run_worker_first": ["/ws"]
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "ROOMS", "class_name": "RoomHub" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["RoomHub"] }
+  ]
+}
